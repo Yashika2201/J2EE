@@ -1,5 +1,7 @@
 package com.demo.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +25,11 @@ public class LoginController {
 	}
 	
 	@PostMapping("/validate")
-	public ModelAndView validate(@RequestParam String username, @RequestParam String password) {
+	public ModelAndView validate(@RequestParam String username, @RequestParam String password, HttpSession session) {
 		User u = rservice.validate(username, password);
 		if(u!=null) {
-			return new ModelAndView("success","msg","You have successfully Login"); 
+			session.setAttribute("user", u);
+			return new ModelAndView("redirect:/employee"); 
 		}
 		return new ModelAndView("redirect:/login/"); 
 	}

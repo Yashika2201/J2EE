@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method="post">
-	<input type = "text" placeholder="Enter UserName" name=uname id=uname>
-	<input type = "email" placeholder="Enter email id" name=email id=email>
-	<input type = "password" placeholder="Enter password" name=pass id=pass>
+	<form action="addemployee" method="post">
+	<input type = "text" placeholder="Enter UserName" name=username id=username><br>
+	<input type = "email" placeholder="Enter email id" name=email id=email><br>
+	<input type = "password" placeholder="Enter password" name=password id=password><br>
+	<button type="submit" name=btn id="btn">Register</button>
 	</form>
 </body>
 </html>
